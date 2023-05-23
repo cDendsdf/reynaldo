@@ -45,7 +45,7 @@ namespace Capa_Datos.Query
             using (var data = new Context())
             {
                 Estudiante estudent = await data.Estudiantes.FindAsync(id);
-                data.Estudiantes.Remove(estudent);
+                data.Remove(estudent);
                 await data.SaveChangesAsync();
             }
 

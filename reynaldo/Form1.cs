@@ -12,6 +12,9 @@ namespace reynaldo
         {
             InitializeComponent();
             mostrar();
+            textBox1.Visible = false;
+            button1.Visible = false;
+            label7.Visible = false;
         }
 
         public void mostrar()
@@ -72,6 +75,32 @@ namespace reynaldo
         {
            
         
+        }
+
+        private  void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            var result = MessageBox.Show("Desea eliminar este estudiante", "Eliminar Datos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                textBox1.Visible = true;
+                button1.Visible = true;
+                label7.Visible = true;
+            }
+         
+
+         
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            await CN_Estudiante.BorrarEstudiante(Convert.ToInt32(textBox1.Text));
+            mostrar();
         }
     }
 }
